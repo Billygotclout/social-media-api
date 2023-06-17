@@ -21,5 +21,6 @@ const postsSchema =mongoose.Schema({
     comment:{
         type:String
     },
+    likes:[],
 })
 module.exports=mongoose.model("Posts", postsSchema)

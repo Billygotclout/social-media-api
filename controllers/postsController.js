@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const fs = require("fs")
 
 
 const cloudinary = require("cloudinary").v2;
@@ -35,6 +36,12 @@ const createPost = async (req, res) => {
       message: "Image could not be uploaded",
     });
   }
+    fs.unlink(req.file.path, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    }
+    )
   const post = await Post.create({
     user_id: req.user.id,
     caption,

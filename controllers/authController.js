@@ -75,7 +75,7 @@ const login = async (req, res) => {
         },
       },
       process.env.TOKEN_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "5h" }
     );
     res.status(200).json({
       message: "User successfully logged in",
